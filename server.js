@@ -39,9 +39,11 @@ app.use((req, resp, next) => {
     });
     next();
 });
-app.use((req, resp, next) => {
-    resp.render('maintanance');
-});
+
+// app.use((req, resp, next) => {
+//     resp.render('maintanance');
+// });
+
 app.use(express.static(__dirname + '/public'));
 
 //routes
@@ -53,6 +55,13 @@ app.get('/about', (req,res) => {
     res.render('about', {
         pageTitle: 'About page',
         content: 'Some Text'
+    });
+});
+
+app.get('/projects', (req,res) => {
+    res.render('projects', {
+        pageTitle: 'Current Projects',
+        content: 'A list of current projects'
     });
 });
 
