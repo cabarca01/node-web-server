@@ -3,6 +3,8 @@ const exphbs = require('express-handlebars');
 const handlebars = require ('handlebars');
 const fs = require ('fs');
 
+const port = process.env.PORT || 3000;
+
 var app = express();
 var hbsConfig = {
     defaultLayout: 'main',
@@ -57,4 +59,6 @@ app.get('/about', (req,res) => {
 app.get ('/bad', (req, res) => {
     res.send({errorMessage: 'Error'});
 });
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`Node Server running on port ${port}.`);
+});
